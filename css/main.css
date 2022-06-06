@@ -31,7 +31,7 @@ header nav div #navbarNav .navbar-nav .nav-item .nav-link:hover {
 .principal .Semillas {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)(4);
+  -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -186,7 +186,7 @@ header nav div #navbarNav .navbar-nav .nav-item .nav-link:hover {
   .principal .semillas {
     display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (1fr)(2);
+    -ms-grid-columns: (1fr)[2];
         grid-template-columns: repeat(2, 1fr);
     -webkit-box-align: center;
         -ms-flex-align: center;
