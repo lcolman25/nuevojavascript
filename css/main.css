@@ -1,0 +1,202 @@
+header nav div .navbar-brand img {
+  height: 95px;
+  width: 220px;
+}
+
+header nav div #navbarNav {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
+header nav div #navbarNav .navbar-nav {
+  margin: 10px;
+}
+
+header nav div #navbarNav .navbar-nav .nav-item .nav-link:hover {
+  color: #58c8d4;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.carrucell #carouselExampleIndicators .carousel-inner .carousel-item img {
+  height: 600px;
+}
+
+.principal h1 {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.principal .Semillas {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)(4);
+      grid-template-columns: repeat(4, 1fr);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+
+.principal .Semillas .caja {
+  width: 300px;
+  padding: 20px;
+  margin: 10%;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.principal .Semillas .caja:before {
+  content: "nuevo";
+  background: #f70202;
+  padding: 10px;
+  top: 10px;
+  right: 10px;
+  position: absolute;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  color: aliceblue;
+}
+
+.principal .Semillas .caja:hover:before {
+  top: 30px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background: #0be54d;
+  color: black;
+  border-radius: 50% 50% 50% 50%;
+}
+
+.principal .Semillas .caja img {
+  width: 100%;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.principal .Semillas .caja div h3 {
+  font-size: 20px;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+}
+
+.principal .Semillas .caja div span {
+  color: #ff9900;
+  font-weight: bold;
+}
+
+.principal .Semillas .caja div span p {
+  display: none;
+}
+
+.principal .Semillas .caja div span:hover p {
+  display: block;
+  color: #f50101;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  font-size: 10px;
+  margin: 0;
+}
+
+.principal .Semillas .caja span {
+  display: block;
+  margin: 10px 0;
+  color: #ff9900;
+}
+
+.principal .Semillas .caja span:hover {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+}
+
+.conteiner-editor {
+  margin-top: 50px;
+  position: relative;
+}
+
+.conteiner-editor .editor__item {
+  height: 400px;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+
+.conteiner-editor .editor__item:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.conteiner-editor .editor__item:hover:before {
+  opacity: 1;
+}
+
+.conteiner-editor .editor__item:hover p {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  bottom: -95px;
+  right: 0;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+.conteiner-editor .editor__item img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.conteiner-editor .editor__item p {
+  width: 200px;
+  height: 200px;
+  border: 1px solid #fcfcfc;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  bottom: -250px;
+  right: -100px;
+  color: white;
+  padding: 20px;
+  padding-bottom: 70px;
+  font-size: 15px;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 768px) {
+  .principal .semillas {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)(2);
+        grid-template-columns: repeat(2, 1fr);
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 2px;
+    max-width: 768px;
+  }
+  .principal .caja {
+    margin: 0px;
+    padding: 0px;
+  }
+}
+/*# sourceMappingURL=main.css.map */
