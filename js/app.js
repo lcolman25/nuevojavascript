@@ -22,9 +22,10 @@ let nombreDeUsuario = prompt('Nombre');
      nombreDeUsuario = prompt('Ingrese nombre sin espacios ni números')
 }
 let apellidoDeUsuario = prompt('apellido');
-while( apellidoDeUsuario === ''|| !isNaN(apellidoDeUsuario)){
-     apellidoDeUsuario = prompt ('ingrese su apellido sin espacio ni números ')
-}
+
+     while( apellidoDeUsuario === ''|| !isNaN(apellidoDeUsuario)){
+          apellidoDeUsuario = prompt ('ingrese su apellido sin espacio ni números ') 
+     }
 let usuario = nombreDeUsuario + " " + apellidoDeUsuario;
      alert('Bienvenido' + " " + usuario)
 
@@ -63,8 +64,7 @@ const selectorSemillas = () => {
             alert('no ingreso  ningun producto');             
          break
      }
-     
-    alert (precio)
+     alert (precio)
     return precio;
 }
 
@@ -74,7 +74,6 @@ let cantidad =  prompt('¿Cuantos packs vas a llevar?');
 while (isNaN(parseInt(cantidad)) || cantidad >= 11 ){
  cantidad = prompt('Ingrese solo números de packs ,menor a 10 que es la cantidad habilitada ')
 }
-
 if(cantidad == 1 ){
      alert('¿Seguro desea comprar solo uno?')   
 }
@@ -82,26 +81,20 @@ else if(cantidad == 5 ){
      alert('Con un packs más se le hará un 20% off que se deberá avisar en el momento de retirar el producto')
 }
 else if (cantidad == 10 ){
-     alert('Felicidades con la compra de 10 packs, te llevas 1 de REGALO ')
-     
+     alert('Felicidades con la compra de 10 packs, te llevas 1 de REGALO ')   
 }
 else{
      alert('Gracias')
 }
-
  return cantidad;
 }
-
  multiplicacion (selectorSemillas(),cuantasSemillas());
-
- class Ventas {
-      constructor (nombre, precio){
-           this.nombre = nombre
-           this.precio = precio
-          }
-          monstrarProducto(){}
+     class Ventas {
+          constructor (nombre, precio){
+            this.nombre = nombre
+            this.precio = precio
+          } 
      } 
-
 const ventas1 = new Ventas( "desmo kickbas", 340)
 const ventas2 = new Ventas("desmo plastic", 210 )
 const ventas3 = new Ventas( "desmo metal", 550)
@@ -111,56 +104,42 @@ console.log(ventas2);
 console.log(ventas3);
 
 class DetalleVentas {
-     constructor( producto, cantidad){
-      this.producto = producto;
-      this.cantidad = cantidad;
+     constructor( producto,cantidad){
+          this.producto = producto;
+          this.cantidad = cantidad;
      }
     totalDeCompra() {
-     let subtotal = this.producto.precio * this.cantidad;
-     return subtotal;
-    }
-    
+          let subtotal = this.producto.precio * this.cantidad;
+          return subtotal;
+     }   
 }
 const detalleVentas1 = new DetalleVentas(ventas1, 3);
 const detalleVentas2 = new DetalleVentas(ventas2, 2);
 const detalleVentas3 = new DetalleVentas(ventas3, 2);
 
-
-/*console.log(detalleVentas1.totalDeCompra())
+console.log(detalleVentas1.totalDeCompra())
 console.log(detalleVentas2.totalDeCompra())
-console.log(detalleVentas3.totalDeCompra())*/
+console.log(detalleVentas3.totalDeCompra())
 
-class PedidoEcho{
-     constructor(fecha,detalles){
-     this.fecha = fecha;
-     this.detalles = detalles;
-}
- calcularPedidoEcho(){
-      let total=0;
-      for(const dp of this.detalles){
+     class PedidoEcho{
+          constructor(fecha,detalles){
+          this.fecha = fecha;
+          this.detalles = detalles;
+     }
+     calcularPedidoEcho(){
+          let total=0;
+           for(const dp of this.detalles){
            total= total + dp.totalDeCompra();
-      }
+          }
       return total;
- }
- 
+     }
 }
-
 const array = [ ];
 array.push(detalleVentas1)
 array.push(detalleVentas2)
 array.push(detalleVentas3)
 
-
 const PedidoEcho1= new PedidoEcho( new Date(),array)
 
 console.log (PedidoEcho1.calcularPedidoEcho())
  
-
-//en consola//
- for (let i= 0; i<= 12; i++) {
-      for (let y = 1; y <= 12; y++) {
-      let tabla= i * y
-           console.log ('numero: ' + y +  ' * ' + i +' = ' + tabla)
-      }
-      }
-    
