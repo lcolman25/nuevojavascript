@@ -15,7 +15,7 @@ let total = 0;
 let precio;
 let cantidad;
 
-let bienvenido = alert('Bienvenido a marihiguana');
+let Bienvenido = alert ('Bienvenido a marihiguana');
 
 let nombreDeUsuario = prompt('Nombre');
      while( nombreDeUsuario ===  ''|| !isNaN(nombreDeUsuario)){
@@ -33,51 +33,42 @@ let usuario = nombreDeUsuario + " " + apellidoDeUsuario;
           alert('Deletraremos tu apellido , si no lo escribiste bien carga nuevamente la pagina ' + caracter)
      }
 
-const selectorsemillas = () => {
-     
+const selectorSemillas = () => {
+    
      producto = prompt('Aquí te dejamos las semillas que tenemos en stock elije una de ellas y se le brindará el precio: despink , sour destro , cherryog , mohanthai , og 342 ,river haze , amnecia , lemon blue , ultra mahona')
      let precio;
-
      switch (producto) {
           case 'despink' :
                precio =1410;
-          
           break  
-
           case "sour destro":
                precio = 1600; 
-       
           break
-
           case "cherryog" :
                precio = 1590;    
           break
-
           case "mohanthai":
                precio = 2000;   
           break
-
           case "og 342":
                precio = 1420;
           break
-
           case "river haze":
                precio = 1850;
           break
-
           case "amnecia":
              precio = 1600;
           break
-
            default :
             alert('no ingreso  ningun producto');             
-           break
+         break
      }
+     
     alert (precio)
     return precio;
 }
 
-const cuantassemillas = () => {
+const cuantasSemillas = () => {
 
 let cantidad =  prompt('¿Cuantos packs vas a llevar?');
 while (isNaN(parseInt(cantidad)) || cantidad >= 11 ){
@@ -97,14 +88,72 @@ else if (cantidad == 10 ){
 else{
      alert('Gracias')
 }
+
  return cantidad;
 }
 
+ multiplicacion (selectorSemillas(),cuantasSemillas());
+
+ class Ventas {
+      constructor (nombre, precio){
+           this.nombre = nombre
+           this.precio = precio
+          }
+          monstrarProducto(){}
+     } 
+
+const ventas1 = new Ventas( "desmo kickbas", 340)
+const ventas2 = new Ventas("desmo plastic", 210 )
+const ventas3 = new Ventas( "desmo metal", 550)
+
+console.log(ventas1);
+console.log(ventas2);
+console.log(ventas3);
+
+class DetalleVentas {
+     constructor( producto, cantidad){
+      this.producto = producto;
+      this.cantidad = cantidad;
+     }
+    totalDeCompra() {
+     let subtotal = this.producto.precio * this.cantidad;
+     return subtotal;
+    }
+    
+}
+const detalleVentas1 = new DetalleVentas(ventas1, 3);
+const detalleVentas2 = new DetalleVentas(ventas2, 2);
+const detalleVentas3 = new DetalleVentas(ventas3, 2);
 
 
- multiplicacion (selectorsemillas(),cuantassemillas());
+/*console.log(detalleVentas1.totalDeCompra())
+console.log(detalleVentas2.totalDeCompra())
+console.log(detalleVentas3.totalDeCompra())*/
 
+class PedidoEcho{
+     constructor(fecha,detalles){
+     this.fecha = fecha;
+     this.detalles = detalles;
+}
+ calcularPedidoEcho(){
+      let total=0;
+      for(const dp of this.detalles){
+           total= total + dp.totalDeCompra();
+      }
+      return total;
+ }
  
+}
+
+const array = [ ];
+array.push(detalleVentas1)
+array.push(detalleVentas2)
+array.push(detalleVentas3)
+
+
+const PedidoEcho1= new PedidoEcho( new Date(),array)
+
+console.log (PedidoEcho1.calcularPedidoEcho())
  
 
 //en consola//
@@ -114,4 +163,4 @@ else{
            console.log ('numero: ' + y +  ' * ' + i +' = ' + tabla)
       }
       }
-      
+    
