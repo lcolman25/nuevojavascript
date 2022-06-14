@@ -11,9 +11,6 @@ const suma = (a, b) => {
      let resultado = a + b
      alert('usted debe pagar '+ resultado + ' pesos')
 }
-let total = 0;
-let precio;
-let cantidad;
 
 let Bienvenido = alert ('Bienvenido a marihiguana');
 
@@ -22,20 +19,17 @@ let nombreDeUsuario = prompt('Nombre');
      nombreDeUsuario = prompt('Ingrese nombre sin espacios ni números')
 }
 let apellidoDeUsuario = prompt('apellido');
-
      while( apellidoDeUsuario === ''|| !isNaN(apellidoDeUsuario)){
           apellidoDeUsuario = prompt ('ingrese su apellido sin espacio ni números ') 
      }
 let usuario = nombreDeUsuario + " " + apellidoDeUsuario;
      alert('Bienvenido' + " " + usuario)
-
      for (let index = 0; index < apellidoDeUsuario.length; index++) {
           let caracter = apellidoDeUsuario[index];
           alert('Deletraremos tu apellido , si no lo escribiste bien carga nuevamente la pagina ' + caracter)
      }
 
 const selectorSemillas = () => {
-    
      producto = prompt('Aquí te dejamos las semillas que tenemos en stock elije una de ellas y se le brindará el precio: despink , sour destro , cherryog , mohanthai , og 342 ,river haze , amnecia , lemon blue , ultra mahona')
      let precio;
      switch (producto) {
@@ -69,7 +63,6 @@ const selectorSemillas = () => {
 }
 
 const cuantasSemillas = () => {
-
 let cantidad =  prompt('¿Cuantos packs vas a llevar?');
 while (isNaN(parseInt(cantidad)) || cantidad >= 11 ){
  cantidad = prompt('Ingrese solo números de packs ,menor a 10 que es la cantidad habilitada ')
@@ -88,6 +81,7 @@ else{
 }
  return cantidad;
 }
+
  multiplicacion (selectorSemillas(),cuantasSemillas());
      class Ventas {
           constructor (nombre, precio){
@@ -95,15 +89,17 @@ else{
             this.precio = precio
           } 
      } 
-const ventas1 = new Ventas( "desmo kickbas", 340)
-const ventas2 = new Ventas("desmo plastic", 210 )
-const ventas3 = new Ventas( "desmo metal", 550)
+     const ventas1 = new Ventas( "despink", 1410)
+     const ventas2 = new Ventas("sour destro", 1600)
+     const ventas3 = new Ventas( "cherryog", 1590)
+     const ventas4 = new Ventas( "mohanthai", 2000)
+     const ventas5 = new Ventas( "og 342", 1420)
+     const ventas6 = new Ventas( "river haze", 1850)
+     const ventas7 = new Ventas( "amnecia", 1600)
 
-console.log(ventas1);
-console.log(ventas2);
-console.log(ventas3);
 
-class DetalleVentas {
+ 
+ class DetalleVentas {
      constructor( producto,cantidad){
           this.producto = producto;
           this.cantidad = cantidad;
@@ -113,13 +109,21 @@ class DetalleVentas {
           return subtotal;
      }   
 }
-const detalleVentas1 = new DetalleVentas(ventas1, 3);
-const detalleVentas2 = new DetalleVentas(ventas2, 2);
-const detalleVentas3 = new DetalleVentas(ventas3, 2);
+     const detalleVentas1 = new DetalleVentas(ventas1, 3);
+     const detalleVentas2 = new DetalleVentas(ventas2, 1);
+     const detalleVentas3 = new DetalleVentas(ventas3, 7);
+     const detalleVentas4 = new DetalleVentas(ventas4, 1);
+     const detalleVentas5 = new DetalleVentas(ventas5, 7);
+     const detalleVentas6 = new DetalleVentas(ventas6, 1);
+     const detalleVentas7 = new DetalleVentas(ventas7, 4);
 
-console.log(detalleVentas1.totalDeCompra())
-console.log(detalleVentas2.totalDeCompra())
-console.log(detalleVentas3.totalDeCompra())
+     console.log(detalleVentas1.totalDeCompra())
+     console.log(detalleVentas2.totalDeCompra())
+     console.log(detalleVentas3.totalDeCompra())
+     console.log(detalleVentas4.totalDeCompra())
+     console.log(detalleVentas5.totalDeCompra())
+     console.log(detalleVentas6.totalDeCompra())
+     console.log(detalleVentas7.totalDeCompra())
 
      class PedidoEcho{
           constructor(fecha,detalles){
@@ -135,11 +139,16 @@ console.log(detalleVentas3.totalDeCompra())
      }
 }
 const array = [ ];
-array.push(detalleVentas1)
-array.push(detalleVentas2)
-array.push(detalleVentas3)
+     array.push(detalleVentas1)
+     array.push(detalleVentas2)
+     array.push(detalleVentas3)
+     array.push(detalleVentas4)
+     array.push(detalleVentas5)
+     array.push(detalleVentas6)
+     array.push(detalleVentas7)
 
-const PedidoEcho1= new PedidoEcho( new Date(),array)
+
+const PedidoEcho1= new PedidoEcho(new Date(),array)
 
 console.log (PedidoEcho1.calcularPedidoEcho())
  
