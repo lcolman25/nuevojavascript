@@ -28,7 +28,7 @@ header nav div #navbarNav .navbar-nav .nav-item .nav-link:hover {
   font-family: 'Orbitron', sans-serif;
 }
 
-.principal .Semillas {
+.principal .productosSemillas {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[4];
@@ -39,7 +39,7 @@ header nav div #navbarNav .navbar-nav .nav-item .nav-link:hover {
   gap: 10px;
 }
 
-.principal .Semillas .caja {
+.principal .productosSemillas .caja {
   width: 300px;
   padding: 20px;
   margin: 10%;
@@ -48,7 +48,7 @@ header nav div #navbarNav .navbar-nav .nav-item .nav-link:hover {
   position: relative;
 }
 
-.principal .Semillas .caja:before {
+.principal .productosSemillas .caja:before {
   content: "nuevo";
   background: #f70202;
   padding: 10px;
@@ -60,7 +60,7 @@ header nav div #navbarNav .navbar-nav .nav-item .nav-link:hover {
   color: aliceblue;
 }
 
-.principal .Semillas .caja:hover:before {
+.principal .productosSemillas .caja:hover:before {
   top: 30px;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
@@ -69,29 +69,29 @@ header nav div #navbarNav .navbar-nav .nav-item .nav-link:hover {
   border-radius: 50% 50% 50% 50%;
 }
 
-.principal .Semillas .caja img {
+.principal .productosSemillas .caja img {
   width: 100%;
   height: 250px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
-.principal .Semillas .caja div h3 {
+.principal .productosSemillas .caja div h3 {
   font-size: 20px;
   font-family: 'Orbitron', sans-serif;
   text-align: center;
 }
 
-.principal .Semillas .caja div span {
+.principal .productosSemillas .caja div span {
   color: #ff9900;
   font-weight: bold;
 }
 
-.principal .Semillas .caja div span p {
+.principal .productosSemillas .caja div span p {
   display: none;
 }
 
-.principal .Semillas .caja div span:hover p {
+.principal .productosSemillas .caja div span:hover p {
   display: block;
   color: #f50101;
   -webkit-transform: scale(1.1);
@@ -100,13 +100,13 @@ header nav div #navbarNav .navbar-nav .nav-item .nav-link:hover {
   margin: 0;
 }
 
-.principal .Semillas .caja span {
+.principal .productosSemillas .caja span {
   display: block;
   margin: 10px 0;
   color: #ff9900;
 }
 
-.principal .Semillas .caja span:hover {
+.principal .productosSemillas .caja span:hover {
   -webkit-transform: scale(1.3);
           transform: scale(1.3);
 }
@@ -183,7 +183,7 @@ header nav div #navbarNav .navbar-nav .nav-item .nav-link:hover {
 }
 
 @media screen and (max-width: 768px) {
-  .principal .semillas {
+  .principal .productosSemillas {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: (1fr)[2];
@@ -198,5 +198,84 @@ header nav div #navbarNav .navbar-nav .nav-item .nav-link:hover {
     margin: 0px;
     padding: 0px;
   }
+}
+
+#showAllProducts {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+}
+
+#showAllProducts .desmo {
+  width: 300px;
+  padding: 20px;
+  margin: 10%;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+#showAllProducts .desmo:before {
+  content: "nuevo";
+  background: #f70202;
+  padding: 10px;
+  top: 10px;
+  right: 10px;
+  position: absolute;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  color: aliceblue;
+}
+
+#showAllProducts .desmo:hover:before {
+  top: 30px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  background: #0be54d;
+  color: black;
+  border-radius: 50% 50% 50% 50%;
+}
+
+#showAllProducts .desmo img {
+  width: 100%;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+#showAllProducts .desmo h3 {
+  font-size: 20px;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+}
+
+#showAllProducts .desmo p {
+  display: block;
+  margin: 10px 0;
+  color: #ff9900;
+}
+
+#showAllProducts .desmo p:hover {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+  color: red;
+}
+
+#showAllProducts .desmo button {
+  background-color: aliceblue;
+  color: #ff9900;
+}
+
+#showAllProducts .desmo button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  color: red;
+  -webkit-box-sizing: 2px, 2px, 2px, 10px #2e10c3;
+          box-sizing: 2px, 2px, 2px, 10px #2e10c3;
 }
 /*# sourceMappingURL=main.css.map */
