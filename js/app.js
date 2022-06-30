@@ -1,39 +1,9 @@
-const multiplicacion = (a , b) => {
-     let resultado = a * b;
-     alert('usted debe pagar '+ resultado + ' pesos')
-}
-const resta = (a, b) => {
-     let resultado = a - b
-     alert(' usted debe pagar '+ resultado + ' pesos')
-
-} 
-const suma = (a, b) => {
-     let resultado = a + b
-     alert('usted debe pagar '+ resultado + ' pesos')
-}
-
-let Bienvenido ='Bienvenido a marihiguana';
-
-alert(Bienvenido)
-
-let nombreDeUsuario = prompt('NOMBRE');
-     while( nombreDeUsuario ===  ''|| !isNaN(nombreDeUsuario)){
-     nombreDeUsuario = prompt('Ingrese nombre sin espacios ni números');
-}
-
-let apellidoDeUsuario = prompt('APELLIDO');
-     while( apellidoDeUsuario === ''|| !isNaN(apellidoDeUsuario)){
-          apellidoDeUsuario = prompt ('ingrese su apellido sin espacio ni números ') ;
-     }
-
-let usuario = nombreDeUsuario + " " + apellidoDeUsuario;
-alert (usuario + " disfruta de nuestro contenido")
-    
-
 
 let carrito =[]
-
-
+ 
+let compraComleta= JSON.stringify(productos)
+localStorage.setItem('productos',compraComleta)
+let obtenerCompra=JSON.parse(localStorage.getItem('productos'))
 
 let gardadorhtml =document.getElementsByClassName('principal')
 let showAllProducts= document.getElementById('showAllProducts')
@@ -52,39 +22,33 @@ function mostrarPeoductos(){
             nombre.innerText = (product.nombre) 
 
         let precio = document.createElement('p')
-            precio.innerText = (product.precio) 
+            precio.innerText = (product.precio.toLocaleString()) 
 
         let botonAlCarrito=document.createElement("button")
             botonAlCarrito.innerText=("agregar al carrito")
 
-          caja.append(img,nombre,precio,botonAlCarrito)
+        caja.append(img,nombre,precio,botonAlCarrito)
            
-          botonAlCarrito.addEventListener('click',function(){
-               carrito.push(product)
-               alert("Agregaste " + product.nombre + " al carrito")
-               div.innerHTML=``
-               showcart()
-          })
+        botonAlCarrito.addEventListener('click',function(){
+            carrito.push(product)
+            alert("Agregaste " + product.nombre + " al carrito")
+            div.innerHTML=``
+            showcart()
+        })
     })
 }
 
 mostrarPeoductos()
 
 //carrito//
-let showcartproducts =document.getElementById("showcartproductscarrito")
-let cartlista = document.getElementById("cartlista")
-let mostrarcarrito =document.getElementById("mostrarCarrito")
+let showCartProducts =document.getElementById("showcartproductscarrito")
+let cartLista = document.getElementById("cartlista")
+let mostrarCarrito =document.getElementById("mostrarCarrito")
  
-let alertCarrito= document.createElement("h2")
-alertCarrito.setAttribute("class","muestraVacia")
 
- if(!carrito.length){
-     alertCarrito.innerText=("El carrito se encuentra sin productos")
-     div.append(alertCarrito)
-}
 
 function showcart(){
-     alertCarrito.remove()
+     
 
      carrito.forEach((element) =>{
           const divCart=document.createElement("div")
@@ -92,26 +56,27 @@ function showcart(){
           divCart.innerHTML=`
           <img src="${element.img}">
           <h3>${element.nombre}<h3>
-          <h3>${element.precio}<h3>
+          <h3>$${element.precio.toLocaleString()}<h3>
           <button class= "eliminar"data-id=${element.id}>X</button>`
 
            div.appendChild(divCart)
 
-     })
+    })
 
-     let eliminarcompra=document.querySelector(".eliminar")
+    let eliminarcompra=document.querySelector(".eliminar")
 
 
  const total1 = carrito.map((element)=> (element.precio)).reduce((carritoTotalPrecio,
-     currenitemPrecio)=> carritoTotalPrecio + currenitemPrecio, 0);
+     currenItemPrecio)=> carritoTotalPrecio + currenItemPrecio, 0);
    
 
  let totalDeCompra=document.createElement("h4")
-     totalDeCompra.innerHTML=("total:" + "$" + total1 )
+     totalDeCompra.innerHTML=("TOTAL:" + "$" + total1.toLocaleString())
      div.append(totalDeCompra)
 
  let vaciarCarrito =document.createElement("button")
-  vaciarCarrito.innerHTML=("desechar todo")
+  vaciarCarrito.innerHTML=("Desechar Todo")
+  vaciarCarrito.setAttribute("class","desechar")
   div.append(vaciarCarrito)
    
   vaciarCarrito.onclick=()=>{
@@ -121,23 +86,24 @@ function showcart(){
   }
 
 }
-
 //buscador//
 let buscador =document.getElementById("inputsearch")
 let filtrador = document.getElementById("filtro")
 
-function filtrarproductos(){
+function filtrarProductos(){
     let verTodo =document.createElement("button") 
     verTodo.setAttribute("class","verTodo")
     verTodo.innerHTML =("Ver Todo")
     showAllProducts.append(verTodo)
-    const filterproduct = productos.filter((product)=>product.categoria === buscador.value)
+    const filterProduct = productos.filter((product)=>product.categoria === buscador.value)
   
 
-    filterproduct.forEach((filter)=>{
+    filterProduct.forEach((filter)=>{
           let resDeFiltro=document.createElement("div")
            resDeFiltro.setAttribute("class","cajaBusquedas")
+
           showAllProducts.append(resDeFiltro)
+          
 
           let imgBusqueda=document.createElement("img")
           imgBusqueda.setAttribute("src" ,filter.img)
@@ -152,20 +118,55 @@ function filtrarproductos(){
           buyButtonBusqueda.innerText = ("agregar al carrito")
 
           resDeFiltro.append(imgBusqueda, nombreBusqueda, precioBusqueda, buyButtonBusqueda)
-     })
-     
-
+         
+          buyButtonBusqueda.addEventListener('click',function(){
+            carrito.push(filter)
+            alert("Agregaste " + filter.nombre + " al carrito")
+            div.innerHTML=``
+            showcart()
+       })
+    })
     verTodo.onclick = () =>{
           showAllProducts.innerHTML=``
           mostrarPeoductos()
-     }
+    }
 }
+
 buscador.onchange = () => {
      showAllProducts.innerHTML=``
-     filtrarproductos()
+     filtrarProductos()
 }
 
 filtrador.onclick = () => {
      showAllProducts.innerHTML=``
-     filtrarproductos()
+     filtrarProductos()
 }
+
+
+//formulario//
+
+function terminarCompra() {
+    class Usuario{
+        constructor (nombre,direccion ,mail , telefono){
+            this.nombre=nombre,
+            this.direccion=direccion,
+            this.mail=mail,
+            this.telefono=telefono
+        }
+    }  
+
+    let nombre=document.getElementById("nombre")
+    let direccion=document.getElementById("direccion")
+    let mail=document.getElementById("email")
+    let telefono=document.getElementById("telefono")
+    let usuarioCompra= new Usuario(nombre.value, direccion.value, mail.value, telefono.value)
+    console.log(usuarioCompra)
+    console.log(carrito)
+    
+}
+let terminarPedido=document.getElementById("terminarPedido")
+
+    terminarPedido.onclick =(e) =>{
+        e.preventDefault()
+        terminarCompra()
+    }

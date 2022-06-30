@@ -263,7 +263,7 @@ header{
             &:hover{
                 transform: scale(1.1);
                 color: red;
-                box-sizing:2px,2px,2px,10px rgb(46, 16, 195) ;
+                box-sizing:2px,2px,2px,10px rgb(171, 195, 16) ;
             }
             
         }
@@ -273,8 +273,23 @@ header{
 
 .busqueda{
     align-items: center;
-    color: red;
-
+    
+ .barra{
+        border: 2px solid rgb(84, 84, 83);
+        border-radius: 5px;
+        &:hover{
+            border: 3px solid rgb(255, 153, 0);
+           transition: all 2s;
+        }
+    }
+    .barraBoton{
+        background:rgb(84, 84, 83) ;
+        &:hover{
+           background: rgb(255, 153, 0);
+           transition: all 1s;
+           border-radius: 5px;
+        }
+    }
 }
 
 .showAllProducts{
@@ -283,10 +298,12 @@ header{
         color: red;
         background: black;
     }
+    
 }
 .showcartproducts{
     display: flex;
     flex-direction: column;
+    margin: 50px;
     
     h2{
         font-family: 'Orbitron', sans-serif;
@@ -305,13 +322,13 @@ header{
     
    .muestraVacia{
      display: flex;
-     align-items: center;
-     justify-content: center;
-     width: 600px;
-     font-size: 20px;
-     color: rgb(190, 190, 189);
+    justify-content: baseline;
+     width: 350px;
+     font-size: 15px;
+     color: rgb(11, 11, 11);
      padding: 5px;
-     margin: 10px;
+     
+     background:rgb(255, 153, 0);
     }
   
    .vistaaCompra{
@@ -327,10 +344,7 @@ header{
          display: block;
          margin: 10px 0;
          color: rgb(255, 153, 0);
-            &:hover{
-                transform: scale(1.3);
-
-            }
+            
         }
 
         img{
@@ -338,6 +352,27 @@ header{
             height: 150px;
             object-fit: cover;
         }
+    }
+    .formu{
+
+        width: 400px;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+        background:transparent;
+        h3{
+            font-size: 15px;
+        }
+        form{
+            gap: 5px;
+            display: flex;
+            flex-direction:column;
+            .botonEnviar{
+                background: aliceblue;
+                color: rgb(255, 153, 0);
+            }
+        }
+
     }
   
 }
@@ -395,12 +430,64 @@ header{
         }
         
     }
+   
 }
 .verTodo{
-    width: 300px;
+    margin: 20px;
+    width: 150px;
     height: 50px;
     background: aliceblue;
-    color: rgb(255, 153, 0);;
+    color: rgb(255, 153, 0);
     font-family: 'Courier New', Courier, monospace;
 
+}
+.desechar{
+    margin: 20px;
+    width: 150px;
+    height: 50px;
+    background: aliceblue;
+    color: rgb(255, 153, 0);
+    font-family: 'Courier New', Courier, monospace;
+   
+}
+.divdiv{
+    width: 430px;
+    display: grid;
+    grid-template-columns: 1fr 1fr  ;
+    background-color: #151816;
+    button{
+        display: flex;
+        justify-content: left;
+        background: rgb(240, 45, 45);
+        color: white;
+        margin: 0;
+        &:hover{
+            transform: scale(1.1); 
+        }
+    }
+    .desechar{ 
+        width: 150px;
+        font-size: 15px;
+        height: 30px; 
+        margin: 5px;
+        font-family: 'Courier New', Courier, monospace;
+        border-radius: 5px;
+    }
+    h4{
+        margin: 20px;
+        color: white;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    span{
+        color: white;
+    }
+}
+@media screen and (max-width: 768px) {
+    #showAllProducts{
+        display: grid;
+       grid-template-columns: 1fr 1fr;
+       max-width: 768px;
+       margin: 0;
+     
+    }
 }
