@@ -25,18 +25,33 @@ function mostrarPeoductos(){
             precio.innerText = (product.precio.toLocaleString()) 
 
         let botonAlCarrito=document.createElement("button")
+
             botonAlCarrito.innerText=("agregar al carrito")
 
         caja.append(img,nombre,precio,botonAlCarrito)
            
         botonAlCarrito.addEventListener('click',function(){
             carrito.push(product)
-            alert("Agregaste " + product.nombre + " al carrito")
             div.innerHTML=``
             showcart()
         })
+       console.log (button)
+    
+    })
+   
+}
+const showAlert =()=>{
+    Swal.fire({
+        title: "Agregaste " + product.nombre + " al carrito",
+        Text: "agregado ",
+        icon: 'success',
+        confirmButtonText:'Cool'
+       
     })
 }
+
+ let button=document.getElementsByName('button')
+  button.onclick= showAlert
 
 mostrarPeoductos()
 
@@ -60,7 +75,7 @@ function showcart(){
           <button class= "eliminar"data-id=${element.id}>X</button>`
 
            div.appendChild(divCart)
-
+          
     })
 
     let eliminarcompra=document.querySelector(".eliminar")
@@ -83,9 +98,12 @@ function showcart(){
      carrito=[]
      div.innerHTML=``
      console.log(carrito)
-  }
+    }
 
+ carrito.length == 5 && alert ( 'felicidades con mas de 5 unidades el envio es gratis')
 }
+
+
 //buscador//
 let buscador =document.getElementById("inputsearch")
 let filtrador = document.getElementById("filtro")
@@ -96,7 +114,7 @@ function filtrarProductos(){
     verTodo.innerHTML =("Ver Todo")
     showAllProducts.append(verTodo)
     const filterProduct = productos.filter((product)=>product.categoria === buscador.value)
-  
+    
 
     filterProduct.forEach((filter)=>{
           let resDeFiltro=document.createElement("div")
@@ -115,6 +133,7 @@ function filtrarProductos(){
           precioBusqueda.innerText=(filter.precio)
 
           let buyButtonBusqueda=document.createElement("button")
+        
           buyButtonBusqueda.innerText = ("agregar al carrito")
 
           resDeFiltro.append(imgBusqueda, nombreBusqueda, precioBusqueda, buyButtonBusqueda)
@@ -126,12 +145,14 @@ function filtrarProductos(){
             showcart()
        })
     })
+  
+   
     verTodo.onclick = () =>{
           showAllProducts.innerHTML=``
           mostrarPeoductos()
     }
+  
 }
-
 buscador.onchange = () => {
      showAllProducts.innerHTML=``
      filtrarProductos()
@@ -162,7 +183,7 @@ function terminarCompra() {
     let usuarioCompra= new Usuario(nombre.value, direccion.value, mail.value, telefono.value)
     console.log(usuarioCompra)
     console.log(carrito)
-    
+    telefono.length ==String && alert('ingrese un numero profevor')
 }
 let terminarPedido=document.getElementById("terminarPedido")
 
