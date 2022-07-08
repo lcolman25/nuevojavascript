@@ -9,6 +9,18 @@ let gardadorhtml =document.getElementsByClassName('principal')
 let showAllProducts= document.getElementById('showAllProducts')
 let div= document.getElementById('div')
 
+const showAlert =(proId)=>{
+    console,log(proId)
+    const productoElemento=productos.find(producto => producto.id === proId);
+    Swal.fire({
+        title: "Agregaste " + productoElemento.nombre + " al carrito",
+        Text: "agregado ",
+        icon: 'success',
+        confirmButtonText:'Cool'
+       
+    })
+}
+
 function mostrarPeoductos(){
     productos.forEach((product) =>{
         let caja = document.createElement('div')
@@ -25,33 +37,24 @@ function mostrarPeoductos(){
             precio.innerText = (product.precio.toLocaleString()) 
 
         let botonAlCarrito=document.createElement("button")
-
             botonAlCarrito.innerText=("agregar al carrito")
+            botonAlCarrito.setribute("id",`${producto.id}`)
 
         caja.append(img,nombre,precio,botonAlCarrito)
            
-        botonAlCarrito.addEventListener('click',function(){
+        botonAlCarrito.addEventListener('click',function(e){
+           console.log(e.target.id)
             carrito.push(product)
             div.innerHTML=``
+            showAlert(e.target.id)
             showcart()
         })
-       console.log (button)
+       
     
     })
    
 }
-const showAlert =()=>{
-    Swal.fire({
-        title: "Agregaste " + product.nombre + " al carrito",
-        Text: "agregado ",
-        icon: 'success',
-        confirmButtonText:'Cool'
-       
-    })
-}
 
- let button=document.getElementsByName('button')
-  button.onclick= showAlert
 
 mostrarPeoductos()
 
@@ -98,10 +101,15 @@ function showcart(){
      carrito=[]
      div.innerHTML=``
      console.log(carrito)
+     Swal.fire('vaciaste el carrito')
     }
-
+ 
  carrito.length == 5 && alert ( 'felicidades con mas de 5 unidades el envio es gratis')
+ 
+
 }
+
+ 
 
 
 //buscador//
@@ -190,4 +198,12 @@ let terminarPedido=document.getElementById("terminarPedido")
     terminarPedido.onclick =(e) =>{
         e.preventDefault()
         terminarCompra()
+         const dateTime =luxon.DateTime
+         const now= dateTime.now()
+         console.log(now.toString())
+    } 
+   
+
+    function mostrar(){
+        swal("gracias por tu compra")
     }
