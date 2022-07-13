@@ -1,17 +1,24 @@
 
-let carrito =[]
- 
-let compraComleta= JSON.stringify(productos)
-localStorage.setItem('productos',compraComleta)
-let obtenerCompra=JSON.parse(localStorage.getItem('productos'))
-
 let gardadorhtml =document.getElementsByClassName('principal')
 let showAllProducts= document.getElementById('showAllProducts')
 let div= document.getElementById('div')
 
+let carrito=[]
+
+if(JSON.parse(localStorage.getItem("carrito"))){
+    carrito=JSON.parse(localStorage.getItem( "carrito"))
+    showcart();
+    
+}else{localStorage.setItem("carrito",JSON.stringify([]))
+carrito=json.parse(localStorage.getItem("carrito"))
+
+}
+
+
+ 
 const showAlert =(proId)=>{
    
-    const productoElemento=productos.find(producto => producto.id === proId);
+    const productoElemento=productos.find(product => product.id === proId);
     Swal.fire({
         title: "Agregaste " + productoElemento.nombre + " al carrito",
         Text: "agregado ",
@@ -20,6 +27,24 @@ const showAlert =(proId)=>{
        
     })
 };
+setTimeout(() => {
+    Swal.fire({
+        imageUrl: "https://silverriverseeds.com/wp-content/uploads/2019/02/Despink-10-WEB-600x562.jpg",
+        imageHeight: 300,
+        title:"Mejor producto de la casa  DESPINK ",
+        imageAlt: 'A tall image'
+      })
+}, 2000);
+ 
+setTimeout(() => {
+    Swal.fire({
+        imageUrl: "https://http2.mlstatic.com/D_NQ_NP_620758-MLU46658247849_072021-O.webp",
+        imageHeight: 300,
+        title:"la oferta semanal Darth Vader a tan solo $600",
+        imageAlt: 'A tall image'
+      })
+}, 9000);
+
 
 function mostrarPeoductos(){
     productos.forEach((product) =>{
@@ -42,7 +67,7 @@ function mostrarPeoductos(){
         caja.append(img,nombre,precio,botonAlCarrito)
            
         botonAlCarrito.addEventListener('click',function(e){
-           console.log(e.target.id)
+           console.log(product)
             carrito.push(product)
             div.innerHTML=``
             showAlert(e.target.id)
@@ -76,7 +101,7 @@ function showcart(){
         <h3>$${element.precio.toLocaleString()}<h3>
         <button class= "eliminar"data-id=${element.id}>X</button>`
 
-        div.appendChild(divCart);
+        div.appendChild(divCart)
           
     })
 
@@ -101,8 +126,10 @@ function showcart(){
      div.innerHTML=``
      console.log(carrito)
      Swal.fire('vaciaste el carrito')
+     localStorage.setItem("carrito",JSON.stringify([]));
     };
- 
+ localStorage.setItem("carrito",JSON.stringify(carrito))
+
  carrito.length == 5 && alert ( 'felicidades con mas de 5 unidades el envio es gratis');
  
 
