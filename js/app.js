@@ -10,7 +10,7 @@ if(JSON.parse(localStorage.getItem("carrito"))){
     showcart();
     
 }else{localStorage.setItem("carrito",JSON.stringify([]))
-carrito=Json.parse(localStorage.getItem("carrito"))
+carrito=JSON.parse(localStorage.getItem("carrito"))
 
 }
 
